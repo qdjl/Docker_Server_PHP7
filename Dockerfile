@@ -23,6 +23,7 @@ RUN apt-get update -y \
     php-odbc \
     php-sqlite3 \
     php-xmlrpc \
+    php-sybase \
   && apt-get autoclean \
   && apt-get autoremove \
   && rm -rf /var/lib/apt/lists/*
