@@ -24,6 +24,7 @@ RUN apt-get update -y \
     php-sqlite3 \
     php-xmlrpc \
     php-sybase \
+    cron \
   && apt-get autoclean \
   && apt-get autoremove \
   && rm -rf /var/lib/apt/lists/*
