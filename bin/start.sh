@@ -14,5 +14,5 @@ mkdir /run/php
 fi
 
 
-
+cron &
 /usr/sbin/php-fpm7.0 --nodaemonize -c /etc/php/7.0/fpm/php.ini --fpm-config /etc/php/7.0/fpm/php-fpm.conf
