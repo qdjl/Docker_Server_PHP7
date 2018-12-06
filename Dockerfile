@@ -1,22 +1,24 @@
-FROM ubuntu:16.10
+FROM ubuntu:18.04
 MAINTAINER Flyrainning "http://www.fengpiao.net"
 
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y \
   && apt-get install -y \
+    openssl \
     php-fpm \
     php-cli \
     php-imagick \
     php-json \
+    php-services-json \
     php-mail \
     php-mbstring \
-    php-mcrypt \
     php-memcached \
     php-mongodb \
     php-redis \
-    php-ssh2 \
     php-xml \
     php-zip \
+    php-ssh2 \
     php-curl \
     php-gd \
     php-mysql \
@@ -24,6 +26,14 @@ RUN apt-get update -y \
     php-sqlite3 \
     php-xmlrpc \
     php-sybase \
+    php-amqp \
+    php-geos \
+    php-http-request \
+    php-log \
+    php-markdown \
+    php-net-socket \
+    php-pgsql \
+    php-yaml \
     cron \
   && apt-get autoclean \
   && apt-get autoremove \
@@ -32,6 +42,8 @@ RUN apt-get update -y \
 ADD etc /etc
 ADD app /app
 ADD bin /bin
+ADD ext /usr/lib/php/20170718
+
 RUN chmod a+x /bin/start.sh
 WORKDIR /app
 
