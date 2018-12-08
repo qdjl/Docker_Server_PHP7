@@ -45,7 +45,6 @@ RUN apt-get update -y \
     php-pgsql \
     php-yaml \
     cron \
-
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
