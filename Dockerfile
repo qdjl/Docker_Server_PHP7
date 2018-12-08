@@ -22,6 +22,7 @@ RUN apt-get update -y \
     php-json \
     php-services-json \
     php-mail \
+    php-odbc \
     php-mbstring \
     php-memcached \
     php-mongodb \
