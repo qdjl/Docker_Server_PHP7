@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y \
   && apt-get install -y \
     openssl \
+    unixodbc \
     php-fpm \
     php-cli \
     php-imagick \
@@ -43,6 +44,8 @@ ADD etc /etc
 ADD app /app
 ADD bin /bin
 ADD ext /ext
+
+Run ACCEPT_EULA=Y dpkg -i /ext/msodbcsql17_17.2.0.1-1_amd64.deb
 
 RUN chmod a+x /bin/start.sh
 WORKDIR /app
