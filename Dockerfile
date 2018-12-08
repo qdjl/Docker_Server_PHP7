@@ -38,11 +38,11 @@ RUN apt-get update -y \
   && apt-get autoclean \
   && apt-get autoremove \
   && rm -rf /var/lib/apt/lists/*
-    
+
 ADD etc /etc
 ADD app /app
 ADD bin /bin
-ADD ext /usr/lib/php/20170718
+ADD ext /ext
 
 RUN chmod a+x /bin/start.sh
 WORKDIR /app
