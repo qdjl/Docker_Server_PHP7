@@ -6,7 +6,15 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y \
   && apt-get install -y \
     openssl \
-    unixodbc \
+    curl
+
+
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+RUN curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+
+RUN apt-get update -y \
+  && ACCEPT_EULA=Y apt-get install -y \
+    msodbcsql17 \
     php-fpm \
     php-cli \
     php-imagick \
@@ -35,16 +43,16 @@ RUN apt-get update -y \
     php-pgsql \
     php-yaml \
     cron \
-  && apt-get autoclean \
-  && apt-get autoremove \
-  && rm -rf /var/lib/apt/lists/*
+
+    && apt-get autoclean \
+    && apt-get autoremove \
+    && rm -rf /var/lib/apt/lists/*
 
 ADD etc /etc
 ADD app /app
 ADD bin /bin
 ADD ext /ext
 
-Run ACCEPT_EULA=Y dpkg -i /ext/msodbcsql17_17.2.0.1-1_amd64.deb
 
 RUN chmod a+x /bin/start.sh
 WORKDIR /app
