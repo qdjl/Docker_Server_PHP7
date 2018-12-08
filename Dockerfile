@@ -23,7 +23,6 @@ RUN apt-get update -y \
     php-curl \
     php-gd \
     php-mysql \
-    php-odbc \
     php-sqlite3 \
     php-xmlrpc \
     php-sybase \
