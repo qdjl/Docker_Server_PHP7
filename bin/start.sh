@@ -15,4 +15,4 @@ fi
 
 
 cron &
-/usr/sbin/php-fpm7.0 --nodaemonize -c /etc/php/7.0/fpm/php.ini --fpm-config /etc/php/7.0/fpm/php-fpm.conf
+/usr/sbin/php-fpm7.2 --nodaemonize -c /etc/php/7.2/fpm/php.ini --fpm-config /etc/php/7.2/fpm/php-fpm.conf
