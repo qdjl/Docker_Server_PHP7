@@ -35,7 +35,6 @@ RUN apt-get update -y \
     php-mysql \
     php-sqlite3 \
     php-xmlrpc \
-    php-sybase \
     php-amqp \
     php-geos \
     php-http-request \
