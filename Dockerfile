@@ -15,7 +15,6 @@ RUN curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt
 
 RUN apt-get update -y \
   && ACCEPT_EULA=Y apt-get install -y \
-    msodbcsql17 \
     php-fpm \
     php-cli \
     php-imagick \
@@ -43,15 +42,20 @@ RUN apt-get update -y \
     php-net-socket \
     php-pgsql \
     php-yaml \
-    cron \
-    && apt-get autoclean \
-    && apt-get autoremove \
-    && rm -rf /var/lib/apt/lists/*
+    cron
 
 ADD etc /etc
 ADD app /app
 ADD bin /bin
 ADD ext /ext
+
+#RUN ACCEPT_EULA=Y dpkg -i /ext/msodbcsql17_17.3.0.1-1_amd64.deb
+
+RUN apt-get autoclean \
+    && apt-get autoremove \
+    && rm -rf /var/lib/apt/lists/*
+
+
 
 
 RUN chmod a+x /bin/start.sh
