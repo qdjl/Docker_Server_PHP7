@@ -42,14 +42,16 @@ RUN apt-get update -y \
     php-net-socket \
     php-pgsql \
     php-yaml \
-    cron
+    cron \
+    msodbcsql17 \
+    unixodbc-dev
 
 ADD etc /etc
 ADD app /app
 ADD bin /bin
 ADD ext /ext
 
-RUN ACCEPT_EULA=Y dpkg -i /ext/msodbcsql17_17.3.0.1-1_amd64.deb
+#RUN ACCEPT_EULA=Y dpkg -i /ext/msodbcsql17_17.3.0.1-1_amd64.deb
 
 RUN apt-get autoclean \
     && apt-get autoremove \
