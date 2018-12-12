@@ -44,8 +44,10 @@ RUN apt-get update -y \
     php-pgsql \
     php-yaml \
     cron \
-    msodbcsql17 \
-    unixodbc-dev
+    unixodbc \
+    unixodbc-dev \
+    msodbcsql17
+
 
 ADD etc /etc
 ADD app /app
